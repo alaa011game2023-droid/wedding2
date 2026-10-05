@@ -841,35 +841,68 @@
         
         .submit-btn:active { transform: scale(0.97); }
         .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
-        
         .wishes-ticker {
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid var(--gold);
-            border-radius: 15px;
-            padding: 20px;
-            overflow: hidden;
-        }
+                        background: rgba(93, 173, 226, 0.05); /* خلفية سماوية هادئة */
+                        border: 1px solid var(--gold);
+                        border-radius: 15px;
+                        padding: 20px;
+                         }
+
+.wishes-ticker h4 { 
+    color: var(--gold); 
+    font-size: 1.3rem; 
+    text-align: center; 
+    margin-bottom: 15px; 
+}
+
+/* تحويل العرض للطول مع إضافة شريط تمرير */
+.ticker-content { 
+    display: flex; 
+    flex-direction: column; /* العرض بالطول */
+    gap: 15px; 
+    max-height: 350px; /* الحد الأقصى لطول المربع */
+    overflow-y: auto; /* تفعيل شريط التمرير الطولي */
+    padding-left: 10px; /* مسافة لشريط التمرير */
+}
+
+/* تجميل شكل شريط التمرير ليكون أنيقاً */
+.ticker-content::-webkit-scrollbar {
+    width: 6px;
+}
+.ticker-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+}
+.ticker-content::-webkit-scrollbar-thumb {
+    background: var(--gold-light);
+    border-radius: 10px;
+}
+
+.wish-item {
+    background: rgba(0, 0, 0, 0.03);
+    padding: 15px 20px;
+    border-radius: 12px;
+    border-right: 4px solid var(--gold);
+    width: 100%;
+    /* الحل الجذري لمشكلة خروج النص */
+    white-space: normal; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+}
+
+.wish-item .wish-name { 
+    color: var(--gold); 
+    font-weight: 700; 
+    margin-bottom: 8px; 
+}
+
+.wish-item .wish-text { 
+    color: var(--text-light); 
+    font-size: 0.95rem; 
+    line-height: 1.6; /* مسافة مريحة بين السطور */
+}
         
-        .wishes-ticker h4 { color: var(--gold); font-size: 1.3rem; text-align: center; margin-bottom: 15px; }
-        .ticker-content { display: flex; animation: tickerScroll 30s linear infinite; gap: 30px; }
-        
-        @keyframes tickerScroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        
-        .wish-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px 20px;
-            border-radius: 12px;
-            border-right: 3px solid var(--gold);
-            min-width: 300px;
-            white-space: nowrap;
-        }
-        
-        .wish-item .wish-name { color: var(--gold); font-weight: 700; margin-bottom: 5px; }
-        .wish-item .wish-text { color: var(--text-muted); font-size: 0.95rem; }
-        
+       
         /* Sections عامة */
         section { padding: 80px 20px; max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
         
